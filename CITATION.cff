@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this software and the associated thesis when using these files."
+title: "Firm Dynamics in the German Industrial Sector: An analysis of the 2022 Energy shock"
+type: software
+authors:
+  - given-names: "Valentina"
+    family-names: "Botero Cardona"
+version: 1.0.0
+date-released: 2026-07-22
+repository-code: "https://github.com/valentina5917-bit/two-type-energy-shock-matlab"
+keywords:
+  - firm dynamics
+  - energy prices
+  - heterogeneous firms
+  - Hopenhayn model
+  - shocks
