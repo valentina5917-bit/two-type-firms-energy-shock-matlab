@@ -1,28 +1,18 @@
 function [Z,Zprob] = tauchen(N,mu,rho,sigma,m)
-%Function TAUCHEN
-%
-%Purpose:    Finds a Markov chain whose sample paths
-%            approximate those of the AR(1) process
-%                z(t+1) = (1-rho)*mu + rho * z(t) + eps(t+1)
-%            where eps are normal with stddev sigma
-%
-%Format:     {Z, Zprob} = Tauchen(N,mu,rho,sigma,m)
-%
-%Input:      N       scalar, number of nodes for Z
-%            mu      scalar, unconditional mean of process
-%            rho     scalar
-%            sigma   scalar, std. dev. of epsilons
-%            m       max +- std. devs.
-%
-%Output:     Z       N*1 vector, nodes for Z
-%            Zprob   N*N matrix, transition probabilities
-%
-%    Martin Floden
-%    Fall 1996
-%
-%    This procedure is an implementation of George Tauchen's algorithm
-%    described in Ec. Letters 20 (1986) 177-181.
-%
+
+%Purpose: Finds a Markov chain whose sample paths
+%approximate those of the AR(1) process
+%z(t+1) = (1-rho)*mu + rho * z(t) + eps(t+1)
+%where eps are normal with stddev sigma
+
+%{Z, Zprob} = Tauchen(N,mu,rho,sigma,m)
+
+%Inputs:
+% N       scalar, number of nodes for Z
+% mu      scalar, unconditional mean of process
+% rho     scalar
+% sigma   scalar, std. dev. of epsilons
+% m       max +- std. devs.
 
 Z     = zeros(N,1);
 Zprob = zeros(N,N);
