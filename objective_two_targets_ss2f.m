@@ -1,16 +1,16 @@
 function loss = objective_two_targets_ss2f(u, p, target_exit, target_rel_size_H)
-% OBJECTIVE_TWO_TARGETS_SS2F
-% Objective for two-type steady-state calibration.
-%
-% Lambda and gamma are fixed from data.
-%
-% Calibrated:
-%   u(1) = log(x)
-%   u(2) = log(A_H)
-%
-% Targets:
-%   x   -> aggregate exit rate
-%   A_H -> relative BPW/output per firm of high-energy firms
+
+%OBJECTIVE_TWO_TARGETS_SS2F
+%Objective for two-type steady-state calibration
+%Lambda and gamma are calibrated from data
+
+%Calibrated:
+%u(1) = log(x)
+%u(2) = log(A_H)
+
+%Targets:
+%x   -> aggregate exit rate
+%A_H -> relative BPW/output per firm of high energy-intensive firms
 
 x   = exp(u(1));
 A_H = exp(u(2));
