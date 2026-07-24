@@ -9,7 +9,7 @@ Hopenhayn model calibrated to German industry. Firms are classified as low or hi
 energy-intensive. The package reproduces the steady states, impulse responses,
 robustness exercises, crisis simulation, and selected appendix diagnostics.
 
-In required cases, AI tool was use to improve parts of the code, this was agreed previously
+In required cases, AI tool was used to improve parts of the code, this was agreed previously
 with my supervisor.
 
 ## Repository contents
