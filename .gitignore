@@ -1,19 +1,1 @@
-# MATLAB temporary and generated files
-*.asv
-*.m~
-*.autosave
-slprj/
-codegen/
 
-# Generated simulation output. Curated final outputs are tracked separately.
-/results/generated/*
-!/results/generated/.gitkeep
-
-# Local workspaces and operating-system files
-matlab_workspace.mat
-Thumbs.db
-.DS_Store
-
-# Editor settings
-.vscode/
-.idea/
