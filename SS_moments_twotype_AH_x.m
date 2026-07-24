@@ -1,6 +1,5 @@
 function out = SS_moments_twotype_AH_x(A_H, x, p)
-% SS_MOMENTS_TWOTYPE_AH_X
-% Computes steady-state moments for two firm types (low/high energy intensity).
+%SS_MOMENTS_TWOTYPE_AH_X
 
 n_theta = p.n_theta;
 gamma_type  = p.gamma_type(:)';
