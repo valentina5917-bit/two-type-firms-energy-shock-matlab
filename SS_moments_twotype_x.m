@@ -15,9 +15,8 @@ Q_incumbent = p.Q_incumbent;
 Q_entrant   = p.Q_entrant;
 L_supply    = p.L_supply;
 
-%% =========================================================
-% 1. STATIC POLICIES + VFI BY TYPE
-% ==========================================================
+%% 1. Static policies + VFI by type
+
 eta_type    = zeros(1,n_types);
 y_policy    = zeros(n_theta,n_types);
 n_policy    = zeros(n_theta,n_types);
@@ -69,9 +68,8 @@ for s = 1:n_types
     V_type(:,s) = V1;
 end
 
-%% =========================================================
-% 2. FREE ENTRY => IMPLIED xE
-% ==========================================================
+%% Free entry -> implied xE
+
 vE_type = zeros(n_types,1);
 for s = 1:n_types
     vE_type(s) = beta * (Q_entrant' * V_type(:,s));
@@ -80,9 +78,8 @@ end
 vE_total = lambda_type * vE_type;
 xE_implied = vE_total / W;
 
-%% =========================================================
-% 3. STATIONARY DISTRIBUTION ACROSS TYPES
-% ==========================================================
+%% Stationary distribution across types
+
 mu = zeros(n_theta,n_types);
 for s = 1:n_types
     mu(:,s) = lambda_type(s) * ones(n_theta,1) / n_theta;
@@ -121,9 +118,8 @@ for it_mu = 1:maxit_mu
     mu = mu_next;
 end
 
-%% =========================================================
-% 4. TYPE SHARES AND EXIT RATES
-% ==========================================================
+%% Type shares and exit rates
+
 share_type = [sum(mu(:,1)); sum(mu(:,2))];
 
 mu_survive = zeros(n_theta,n_types);
@@ -142,17 +138,15 @@ end
 exit_rate_agg = share_type' * exit_rate_type;
 exit_rate_agg = max(exit_rate_agg, 0);
 
-%% =========================================================
-% 5. PRE-EXIT / PRODUCTION DISTRIBUTION
-% ==========================================================
+%% Pre-exit / production distributon
+
 mu_underline = zeros(n_theta,n_types);
 for s = 1:n_types
     mu_underline(:,s) = Q_incumbent' * mu(:,s);
 end
 
-%% =========================================================
-% 6. TYPE AVERAGES
-% ==========================================================
+%% Type averages
+
 y_ave_type  = zeros(n_types,1);
 n_ave_type  = zeros(n_types,1);
 e_ave_type  = zeros(n_types,1);
@@ -170,18 +164,16 @@ n_ave_total  = sum(n_ave_type);
 e_ave_total  = sum(e_ave_type);
 pi_ave_total = sum(pi_ave_type);
 
-%% =========================================================
-% 7. MASS OF FIRMS
-% ==========================================================
+%% Mass of firms
+
 M_total = L_supply / (n_ave_total + (1 - exit_rate_agg) * x + exit_rate_agg * xE_implied);
 M_type  = M_total * share_type;
 
 M_entrants_total = M_total * exit_rate_agg;
 M_entrants_type  = M_entrants_total * lambda_type';
 
-%% =========================================================
-% 8. AGGREGATES
-% ==========================================================
+%% Aggregates 
+
 y_agg = M_total * y_ave_total;
 n_agg = M_total * n_ave_total;
 e_agg = M_total * e_ave_total;
@@ -197,9 +189,7 @@ output_share_type = Y_type / sum(Y_type);
 labor_share_type  = N_type / sum(N_type);
 energy_share_type = E_type / sum(E_type);
 
-%% =========================================================
-% 9. OUTPUT
-% ==========================================================
+%% Output
 out.x                = x;
 out.xE_implied       = xE_implied;
 
